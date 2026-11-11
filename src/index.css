@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #06080d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 5px;
+  border: 2px solid #06080d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* RGB Animated Borders - Estilo Guru de Lançamentos */
+@keyframes rgbRotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes spinGradient {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.rgb-card-wrapper {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 2px;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 300% 300%;
+  animation: rgbShift 4s ease infinite;
+}
+
+@keyframes rgbShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.rgb-border-glow {
+  position: relative;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 25px -3px rgba(245, 158, 11, 0.45), 0 0 50px -10px rgba(239, 68, 68, 0.3);
+}
+
+.electric-border {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 2px;
+  background: linear-gradient(135deg, #FFD700, #FF6B00, #00F0FF, #FFD700);
+  background-size: 200% 200%;
+  animation: rgbShift 3s linear infinite;
+}
+
+/* Neon Text */
+.text-neon-yellow {
+  color: #FFE600;
+  text-shadow: 0 0 15px rgba(255, 230, 0, 0.6), 0 0 30px rgba(255, 230, 0, 0.3);
+}
+
+.text-neon-green {
+  color: #10B981;
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+/* High Converting 3D Button */
+.btn-guru {
+  background: linear-gradient(180deg, #FFE033 0%, #F59E0B 50%, #D97706 100%);
+  border-bottom: 4px solid #B45309;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.5), inset 0 2px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-guru:hover {
+  background: linear-gradient(180deg, #FFF066 0%, #FBBF24 50%, #EA580C 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(245, 158, 11, 0.7), inset 0 2px 3px rgba(255, 255, 255, 0.8);
+}
+.btn-guru:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+.btn-green-guru {
+  background: linear-gradient(180deg, #34D399 0%, #10B981 50%, #059669 100%);
+  border-bottom: 4px solid #047857;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5), inset 0 2px 2px rgba(255, 255, 255, 0.6);
+}
+.btn-green-guru:hover {
+  background: linear-gradient(180deg, #6EE7B7 0%, #34D399 50%, #059669 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.7);
+}
+.btn-green-guru:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+/* Button Shimmer */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 80%
+  );
+  transform: rotate(25deg);
+  animation: btn-shine 3s infinite;
+}
+
+@keyframes btn-shine {
+  0% { transform: translateX(-150%) rotate(25deg); }
+  25%, 100% { transform: translateX(150%) rotate(25deg); }
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4), 0 0 40px rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.8), 0 0 70px rgba(245, 158, 11, 0.4);
+  }
+}
+
+.pulse-glow-amber {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Guru Fake Notification Toast */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-toast {
+  animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
